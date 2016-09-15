@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    {% for customer in object_list %}
+    {% if customer.user.username == request.user.username %}
+    <h2> Welcome : {{ customer.user.username }}</h2>
+    <h4> Address : {{ customer.address}}</h4>
+    <h4> Phone : {{ customer.phone_number}}</h4>
+    <h4> Email : {{ customer.user.email}}</h4>
+    <h4> Signed up as  : {{ customer.role}}</h4>
+    {% endif %}
+    {% if request.user is None %}
+    <a href="{% url 'login' %}">Login</a>
+    <a href="{% url 'signup' %}">SignUp</a>
+    {% endif %}
+    {% if request.user is not None %}
+        <a href="{% url 'logout' %}">logout</a>
+    {% endif %}
+
+
+{% empty %}
+    <li>Not logged in.</li>
+{% endfor %}
+</body>
+</html>

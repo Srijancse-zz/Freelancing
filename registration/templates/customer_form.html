@@ -1,0 +1,8 @@
+<form action="" method="post">
+    {% csrf_token %}
+
+<p><label for="id_role">Role:</label> <input id="id_role" maxlength="200" name="role" type="text" required=""></p>
+<p><label for="id_phone_number">Phone number:</label> <input id="id_phone_number" maxlength="11" name="phone_number" type="text" required=""></p>
+<p><label for="id_address">Address:</label> <textarea cols="40" id="id_address" name="address" rows="10" required=""></textarea></p>
+    <input type="submit" value="Save">
+</form>
